@@ -1,7 +1,7 @@
 {
   "name": "wirebot",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "Wire Bot is your Startup Guide & Startempire Wire concierge",
   "private": true,
   "scripts": {
     "watch": "webpack --mode=development --watch --config config/webpack.config.js",

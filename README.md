@@ -1,19 +1,19 @@
-# <img src="public/icons/icon_48.png" width="45" align="left"> Wirebot
+# <img src="public/icons/icon_48.png" width="45" align="left"> Wire Bot
 
-My Chrome Extension
+Wire Bot is your Startup Advisor & Startempire Wire concierge.
 
 ## Features
 
-- Feature 1
-- Feature 2
+- Startup Advisor
+- Startempire Wire concierge
 
 ## Install
 
-[**Chrome** extension]() <!-- TODO: Add chrome extension link inside parenthesis -->
+[**Chrome** extension](https://wirebot.chat/)
 
 ## Contribution
 
-Suggestions and pull requests are welcomed!.
+Suggestions and pull requests may be welcome in the future!
 
 ---
 

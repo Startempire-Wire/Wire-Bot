@@ -18,3 +18,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     });
   }
 });
+
+// Check if the sidePanel API is available
+if (chrome && chrome.sidePanel) {
+  // Try to set the panel behavior
+  chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
+    .catch(e => {
+      // Log any errors
+      console.error(e);
+    });
+}
