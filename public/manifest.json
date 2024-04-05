@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Wire Bot",
+  "name": "🤖 Wire Bot",
   "version": "0.1.0",
-  "description": "Wire Bot is your Startup Advisor & Startempire Wire concierge",
+  "description": "Wire Bot is your Startup Advisor & Startempire Wire concierge!",
   "chrome_url_overrides": {
     "newtab": "wirebot.html"
   },
@@ -18,6 +18,15 @@
   "background": {
     "service_worker": "background.js"
   },
+  "externally_connectable": {
+    "matches": ["*://*.gpt-stuff.local/*"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
   "side_panel": {
     "default_path": "sidepanel.html"
   },

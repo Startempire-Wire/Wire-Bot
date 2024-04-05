@@ -1,30 +1,41 @@
 'use strict';
 
-// With background scripts you can communicate with sidepanel
-// and contentScript files.
-// For more information on background script,
-// See https://developer.chrome.com/extensions/background_pages
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.type === 'GREETINGS') {
-    const message =
-      "Hi Syd, my name is Bac. I am from Background. It's great to hear from you.";
 
-    // Log message coming from the `request` parameter
-    console.log(request.payload.message);
-    // Send a response message
-    sendResponse({
-      message,
-    });
+let sidePanelPort = null;
+
+// Listen for connections from the side panel
+chrome.runtime.onConnect.addListener(function(port) {
+  console.assert(port.name == "sidepanel");
+
+  sidePanelPort = port;   // Store the port when a connection is established
+
+  port.onDisconnect.addListener(function() {
+    sidePanelPort = null; // Clear the port when the connection is closed
+  });
+
+});
+
+// Listen for messages from the content script
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.type === 'buttonClicked') {
+    // The button was clicked, send the message to the side panel
+    if (sidePanelPort) {
+      sidePanelPort.postMessage({message: request.message});
+    }
   }
 });
 
-// Check if the sidePanel API is available
-if (chrome && chrome.sidePanel) {
-  // Try to set the panel behavior
-  chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
-    .catch(e => {
-      // Log any errors
-      console.error(e);
-    });
-}
+// Listen for messages from the web page
+chrome.runtime.onMessageExternal.addListener(function(request, sender, sendResponse) {
+  console.log(sender.url + ' sent a message: ' + JSON.stringify(request));
+
+  // Forward the message to the sidebar
+  if (sidePanelPort) {
+    sidePanelPort.postMessage({message: request.message});
+  }
+
+  sendResponse({message: request.message});
+  return true;
+});
+
