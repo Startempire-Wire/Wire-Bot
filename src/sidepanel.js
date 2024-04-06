@@ -5,7 +5,7 @@ import './sidepanel.css';
 (function () {
 
 
-  
+
   // Establish a connection with the background script
   var port = chrome.runtime.connect({name: "sidepanel"});
 

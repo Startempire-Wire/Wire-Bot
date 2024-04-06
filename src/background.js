@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 let sidePanelPort = null;
 
 // Listen for connections from the side panel

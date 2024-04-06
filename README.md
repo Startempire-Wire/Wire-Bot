@@ -1,6 +1,6 @@
-# <img src="public/icons/icon_48.png" width="45" align="left"> Wire Bot
+# <img src="public/icons/icon_48.png" width="45" align="left"> 🤖 Wire Bot
 
-Wire Bot is your Startup Advisor & Startempire Wire concierge.
+🤖 Wire Bot is your Startup Advisor & Startempire Wire concierge.
 
 ## Features
 
