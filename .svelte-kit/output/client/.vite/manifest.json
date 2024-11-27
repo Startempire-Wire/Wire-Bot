@@ -1,6 +1,6 @@
 {
   ".svelte-kit/generated/client-optimized/app.js": {
-    "file": "app/immutable/entry/app.C7mYKKHF.js",
+    "file": "app/immutable/entry/app.Uka88Csf.js",
     "name": "entry/app",
     "src": ".svelte-kit/generated/client-optimized/app.js",
     "isEntry": true,
@@ -31,7 +31,7 @@
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/1.js": {
-    "file": "app/immutable/nodes/1.D5jnAOST.js",
+    "file": "app/immutable/nodes/1.DbrCXvX-.js",
     "name": "nodes/1",
     "src": ".svelte-kit/generated/client-optimized/nodes/1.js",
     "isEntry": true,
@@ -39,7 +39,7 @@
     "imports": [
       "_scheduler.Bmg8oFKD.js",
       "_index.hnf42E4R.js",
-      "_entry.ClyT-GOS.js"
+      "_entry.MSBuBJR0.js"
     ]
   },
   ".svelte-kit/generated/client-optimized/nodes/2.js": {
@@ -81,8 +81,8 @@
     "file": "app/immutable/chunks/each.D6YF6ztN.js",
     "name": "each"
   },
-  "_entry.ClyT-GOS.js": {
-    "file": "app/immutable/chunks/entry.ClyT-GOS.js",
+  "_entry.MSBuBJR0.js": {
+    "file": "app/immutable/chunks/entry.MSBuBJR0.js",
     "name": "entry",
     "imports": [
       "_scheduler.Bmg8oFKD.js"
@@ -100,12 +100,12 @@
     "name": "scheduler"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/entry.js": {
-    "file": "app/immutable/entry/start.BUdLSsG8.js",
+    "file": "app/immutable/entry/start.Ddi37K5e.js",
     "name": "entry/start",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/entry.js",
     "isEntry": true,
     "imports": [
-      "_entry.ClyT-GOS.js"
+      "_entry.MSBuBJR0.js"
     ]
   },
   "src/background.js": {

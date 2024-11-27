@@ -1,21 +1,21 @@
-# <img src="public/icons/icon_48.png" width="45" align="left"> 🤖 Wire Bot
+# <img src="public/icons/icon_48.png" width="45" align="left"> 🤖 Startempire Wire Network
 
-🤖 Wire Bot is your Startup Advisor & Startempire Wire concierge.
+🌐 Startempire Wire Network is your destination for connecting with the Startempire Wire community, discovering new opportunities / resources, and sharing your own!
 
 ## Features
 
+- Startempire Wire Network
+- Connected Resources
 - Startup Advisor
 - Startempire Wire concierge
 
 ## Install
 
-[**Chrome** extension](https://wirebot.chat/)
+[**Chrome** extension](https://startempirewire.network/)
 
 ## Contribution
 
 Suggestions and pull requests may be welcome in the future!
 
 ---
-
-This project was bootstrapped with [Chrome Extension CLI](https://github.com/dutiyesh/chrome-extension-cli)
 

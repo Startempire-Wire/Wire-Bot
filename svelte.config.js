@@ -10,6 +10,13 @@ export default {
       precompress: false,
       strict: true
     }),
+    csp: {
+      mode: 'hash',
+      directives: {
+        'script-src': ['self', 'wasm-unsafe-eval'],
+        'object-src': ['self']
+      }
+    },
     appDir: 'app',
     files: {
       assets: 'static',
