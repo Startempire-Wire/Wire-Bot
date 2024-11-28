@@ -1,4 +1,4 @@
-# <img src="public/icons/icon_48.png" width="45" align="left"> 🤖 Startempire Wire Network
+# <img src="public/icons/icon_48.png" width="45" align="left"> 🌐 Startempire Wire Network
 
 🌐 Startempire Wire Network is your destination for connecting with the Startempire Wire community, discovering new opportunities / resources, and sharing your own!
 
