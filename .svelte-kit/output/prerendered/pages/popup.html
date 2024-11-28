@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-security-policy" content="object-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-ExhFUpeb8lSPEBwD37iSMAjwxZk9n2gilo+Bx0H+xAs='">
+		<link rel="modulepreload" href="./app/immutable/entry/start.CS2MJVh_.js">
+		<link rel="modulepreload" href="./app/immutable/chunks/entry.BKrXdReC.js">
+		<link rel="modulepreload" href="./app/immutable/chunks/scheduler.Bmg8oFKD.js">
+		<link rel="modulepreload" href="./app/immutable/entry/app.Btyrh38a.js">
+		<link rel="modulepreload" href="./app/immutable/chunks/index.hnf42E4R.js">
+  </head>
+  <body>
+    <div>
+			<script>
+				{
+					__sveltekit_mdqpj = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./app/immutable/entry/start.CS2MJVh_.js"),
+						import("./app/immutable/entry/app.Btyrh38a.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html> 
