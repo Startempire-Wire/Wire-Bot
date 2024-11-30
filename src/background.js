@@ -37,3 +37,15 @@ chrome.runtime.onMessageExternal.addListener(function(request, sender, sendRespo
   return true;
 });
 
+// Handle extension installation
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === 'install') {
+    // Initialize extension data
+  }
+});
+
+// Handle messages from content scripts and popup
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  // Handle extension messaging
+});
+

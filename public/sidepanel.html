@@ -2,36 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌐 Startempire Wire Network</title>
-    <link href="./output.css" rel="stylesheet">
+    <link href="./styles/app.css" rel="stylesheet">
   </head>
   <body>
-    <div class="app">
-
-      <h1 class="app-heading text-3xl font-bold underline">Welcome, Verious! 🌐 Startempire Wire Network.</h1>
-
-      <hr class="divider" />
-
-      <!-- sidepanel.html -->
-      <p class="title">🌐<br>Startempire Wire Network is Ready!</p>
-      <p class="subtitle">Startempire Wire Network is your destination for connecting with the Startempire Wire community, discovering new opportunities / resources, and sharing your own!</p>
-
-      <hr class="divider" />
-      <div clas="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4" id="messageContainer"></div>
-      <hr class="divider" />
-
-      <p class="title">🚀<br>Get Started</p>
-
-
-    </div>
-
-    <script src="sidepanel.js"></script>
-
-    <!--
-      This HTML file opens when you click on icon from the toolbar.
-
-      To begin the development, run `npm run watch`.
-      To create a production bundle, use `npm run build`.
-    -->
+    <div id="app"></div>
+    <script type="module" src="./sidepanel.js"></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "🌐 Startempire Wire Network",
+  "name": "Startempire Wire Network",
   "version": "0.1.0",
-  "description": "Startempire Wire Network is your destination for connecting with the Startempire Wire community, discovering new opportunities / resources, and sharing your own!",
+  "description": "Connect with the Startempire Wire community, discover opportunities and share resources",
   "icons": {
     "16": "icons/icon_16.png",
     "32": "icons/icon_32.png",
@@ -13,24 +13,33 @@
     "default_popup": "popup.html",
     "default_title": "Open Startempire Wire Network"
   },
-  "chrome_url_overrides": {
-    "newtab": "startempire-wire-network.html"
-  },
   "side_panel": {
     "default_path": "sidepanel.html"
   },
+  "chrome_url_overrides" : {
+    "newtab": "startempire-wire-network.html"
+  },
+  "options_page": "options.html",
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "css": ["styles/app.css"]
+    }
+  ],
   "permissions": [
-    "sidePanel", 
-    "storage", 
+    "sidePanel",
+    "contextMenus",
+    "storage",
     "tabs",
     "activeTab"
   ],
   "host_permissions": ["https://*/*"],
   "content_security_policy": {
-    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   }
 }

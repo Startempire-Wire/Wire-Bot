@@ -1,21 +1,20 @@
 {
-  "name": "startempire-wire-network",
+  "name": "startempire-wire-network-extension",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build && vite build -c vite.extension.config.js && npm run copy-ext-assets",
-    "copy-ext-assets": "cp -r public/* build/",
+    "dev": "vite",
+    "build": "rm -rf dist && vite build && npm run copy-assets && npm run process-html",
+    "copy-assets": "cp -r public/* dist/",
+    "process-html": "node scripts/process-html.js",
     "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check"
+    "check": "svelte-check"
   },
   "dependencies": {
-    "@sveltejs/kit": "^2.0.0",
-    "svelte": "^4.2.0"
+    "svelte": "^4.2.19"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
