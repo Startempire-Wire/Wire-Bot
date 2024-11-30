@@ -1,51 +1,84 @@
 'use strict';
 
+// Port management for sidepanel communication
 let sidePanelPort = null;
+
+// Initialize storage on installation
+chrome.runtime.onInstalled.addListener(async (details) => {
+  if (details.reason === 'install') {
+    await chrome.storage.local.set({
+      preferences: {
+        theme: 'light',
+        notifications: true
+      },
+      membershipCache: null,
+      authTokens: null
+    });
+  }
+});
 
 // Listen for connections from the side panel
 chrome.runtime.onConnect.addListener(function(port) {
-  console.assert(port.name == "sidepanel");
-
-  sidePanelPort = port;   // Store the port when a connection is established
+  console.assert(port.name === "sidepanel");
+  sidePanelPort = port;
 
   port.onDisconnect.addListener(function() {
-    sidePanelPort = null; // Clear the port when the connection is closed
+    sidePanelPort = null;
   });
-
 });
 
-// Listen for messages from the content script
+// Message handling system
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.type === 'buttonClicked') {
-    // The button was clicked, send the message to the side panel
-    if (sidePanelPort) {
-      sidePanelPort.postMessage({message: request.message});
-    }
+  switch (request.type) {
+    case 'buttonClicked':
+      if (sidePanelPort) {
+        sidePanelPort.postMessage({message: request.message});
+      }
+      break;
+    case 'auth':
+      handleAuthMessage(request, sender, sendResponse);
+      break;
+    default:
+      console.log('Unknown message type:', request.type);
   }
+  return true; // Keep message channel open for async responses
 });
 
-// Listen for messages from the web page
+// Handle external messages (from web pages)
 chrome.runtime.onMessageExternal.addListener(function(request, sender, sendResponse) {
-  console.log(sender.url + ' sent a message: ' + JSON.stringify(request));
-
-  // Forward the message to the sidebar
+  console.log(`Message from ${sender.url}:`, request);
+  
   if (sidePanelPort) {
     sidePanelPort.postMessage({message: request.message});
   }
-
+  
   sendResponse({message: request.message});
   return true;
 });
 
-// Handle extension installation
-chrome.runtime.onInstalled.addListener((details) => {
-  if (details.reason === 'install') {
-    // Initialize extension data
+// Auth message handler
+async function handleAuthMessage(request, sender, sendResponse) {
+  try {
+    switch (request.action) {
+      case 'login':
+        const authResult = await auth.login();
+        sendResponse({ success: true, data: authResult });
+        break;
+      case 'logout':
+        await auth.logout();
+        sendResponse({ success: true });
+        break;
+      case 'checkAuth':
+        const stored = await chrome.storage.local.get(['auth']);
+        sendResponse({ 
+          isAuthenticated: stored.auth?.isAuthenticated || false,
+          membershipLevel: stored.auth?.membershipLevel || null
+        });
+        break;
+    }
+  } catch (error) {
+    console.error('Auth handler error:', error);
+    sendResponse({ error: error.message });
   }
-});
-
-// Handle messages from content scripts and popup
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  // Handle extension messaging
-});
+}
 
